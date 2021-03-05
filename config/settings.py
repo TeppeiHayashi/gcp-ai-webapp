@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    # MyApplication
-    'image_recognition.apps.ImageRecognitionConfig',
+    # 3rd party apps
+    'rest_framework',
     
+    # MyApplication
+    'image_recognition.apps.ImageRecognitionConfig',    
 ]
 
 MIDDLEWARE = [
