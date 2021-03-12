@@ -5,3 +5,4 @@ __pycache__/
 .pydevproject
 .env
 db.sqlite3
+.vscode/
