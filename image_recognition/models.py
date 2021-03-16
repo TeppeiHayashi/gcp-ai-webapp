@@ -1,5 +1,5 @@
 import uuid
-
+import json
 from django.db import models
 
 '''
@@ -70,6 +70,15 @@ class Request(models.Model):
         auto_now_add=True,
         verbose_name='作成日',
     )
+    
+    '''
+    JSONの内容を返す
+    '''
+    def json_content(self):
+        f = self.json.open()
+        content = json.load(f)
+        f.close()
+        return content
     
     def __str__(self):
         return f'{self.type.name}_{self.created_at}'

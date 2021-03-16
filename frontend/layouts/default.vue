@@ -13,9 +13,9 @@
           :prepend-icon="item.icon"
           no-action
         >
-          <template v-slot:activator>
+          <template #activator>
             <v-list-item-content>
-              <v-list-item-title v-text="item.title"></v-list-item-title>
+              <v-list-item-title v-text="item.title" />
             </v-list-item-content>
           </template>
 
@@ -25,11 +25,11 @@
             :to="`${item.to}${child.to}`"
           >
             <v-list-item-content>
-              <v-list-item-title v-text="child.title"></v-list-item-title>
+              <v-list-item-title v-text="child.title" />
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
-    </v-list>
+      </v-list>
     </v-navigation-drawer>
     <!-- SideMenu　END -->
 
@@ -38,7 +38,6 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
 
       <v-toolbar-title v-text="title" />
-
     </v-app-bar>
     <!-- Header END -->
 
@@ -72,7 +71,7 @@ export default {
           to: '/vision',
           items: [
             {
-              title: '物体抽出', 
+              title: '物体抽出',
               to: '/object-localization'
             },
             {
@@ -99,6 +98,6 @@ export default {
       ],
       title: 'GCP Web APP'
     }
-  },
+  }
 }
 </script>

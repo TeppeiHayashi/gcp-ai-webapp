@@ -5,14 +5,18 @@ from rest_framework import status
 from rest_framework.response import Response
 
 from image_recognition.models import Request, Type
-from .serializers import RequestSerializer
+from apiv1.serializers import RequestSerializer
 
 from libs.gcp.vision.client import VisionApiClient
 
 class RequestViewSet(viewsets.ModelViewSet):
-    
     queryset = Request.objects.all()
     serializer_class = RequestSerializer
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        type_name = self.kwargs['type_name']
+        return queryset.filter(type__name=type_name)
 
     def create(self, request, *args, **kwargs):
         
@@ -43,3 +47,12 @@ class RequestViewSet(viewsets.ModelViewSet):
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+    
+    
+    
+    
+    
+    
+    
